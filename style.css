@@ -1,0 +1,384 @@
+body{
+    background-color: #583140;
+    margin: 0;
+    overflow: hidden;
+}
+.stageBox{
+    position: relative;
+    min-height: 100vh;
+}
+.stage{
+    position: relative;
+    z-index: 1;
+}
+.balloons{
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    z-index: 6;
+}
+.balloon{
+    position: absolute;
+    width: 2rem;
+    height: 2.5rem;
+    border-radius: 50% 50% 45% 45%;
+    box-shadow: inset -0.7rem -0.5rem 0 rgba(0, 0, 0, 0.15);
+    animation: float 8s ease-in-out infinite;
+}
+.balloon::before{
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -0.45rem;
+    width: 0.55rem;
+    height: 0.55rem;
+    background: inherit;
+    transform: translateX(-50%) rotate(45deg);
+}
+.balloon::after{
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    width: 1px;
+    height: 5rem;
+    background: rgba(255, 255, 255, 0.65);
+}
+.balloon1{
+    top: 19%;
+    left: 20%;
+    background: #e85d75;
+    animation-delay: -1s;
+}
+.balloon2{
+    top: 45%;
+    left: 18%;
+    background: #f2c14e;
+    animation-delay: -4s;
+}
+.balloon3{
+    top: 30%;
+    right: 35%;
+    background: #4ecdc4;
+    animation-delay: -6s;
+}
+.balloon4{
+    top: 50%;
+    right: 16%;
+    background: #9b5de5;
+    animation-delay: -2s;
+}
+.balloon5{
+    top: 38%;
+    left: 47%;
+    background: #ff8c42;
+    animation-delay: -7s;
+}
+@keyframes float{
+    0%, 100%{
+        transform: translate(0, 0) rotate(-4deg);
+    }
+    50%{
+        transform: translate(2rem, -2rem) rotate(4deg);
+    }
+}
+.stage{
+    position: relative;
+    border: solid 2vw #D49A51;
+    border-radius: 0 0 1rem 1rem;
+    background-color: #19253F;
+    height: 75vh;
+    margin: 1rem;
+    perspective: 800px;
+}
+.sideCurtainsL, .sideCurtainsR{
+    position: absolute;
+    max-height: 1rem !important;
+    z-index: 7;
+}
+.sideCurtainsL img, .sideCurtainsR img{
+    height: 75vh;
+
+}
+.sideCurtainsL{ 
+    left: 0;
+}
+.sideCurtainsR{
+    right: 0;
+}
+.topCurtains{
+    position: absolute;
+    background-image: url("./media/Curtains.svg");
+    background-repeat: repeat-x;
+    width: 100%;
+    height: 100%;
+    z-index: 8;
+}
+.party-lights{
+    position: absolute;
+    inset: 0;
+    z-index: 7;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at 15% 20%, #ff1744 0 2%, transparent 12%),
+        radial-gradient(circle at 42% 65%, #00e5ff 0 2%, transparent 13%),
+        radial-gradient(circle at 75% 25%, #ffea00 0 2%, transparent 12%),
+        radial-gradient(circle at 88% 75%, #d500f9 0 2%, transparent 14%);
+    background-size: 35% 35%, 45% 45%, 40% 40%, 50% 50%;
+    opacity: 0;
+    mix-blend-mode: screen;
+}
+.party-started .party-lights{
+    animation: partyLights 1.1s steps(2, end) infinite;
+}
+@keyframes partyLights{
+    0%{
+        opacity: 0.35;
+        transform: scale(1) rotate(0deg);
+        filter: hue-rotate(0deg) saturate(1.5);
+    }
+    35%{
+        opacity: 0.9;
+        transform: scale(1.08) rotate(-2deg);
+        filter: hue-rotate(90deg) saturate(2);
+    }
+    70%{
+        opacity: 0.45;
+        transform: scale(0.96) rotate(2deg);
+        filter: hue-rotate(180deg) saturate(1.8);
+    }
+    100%{
+        opacity: 0.8;
+        transform: scale(1.04) rotate(0deg);
+        filter: hue-rotate(270deg) saturate(2);
+    }
+}
+.performance-sign{
+    position: absolute;
+    top: 10vh;
+    left: 50%;
+    width: 10rem;
+    min-height: 4.5rem;
+    padding: 1rem 1.25rem;
+    box-sizing: border-box;
+    background: #D49A51;
+    border: 0.3rem solid #f2c14e;
+    border-radius: 0.35rem;
+    color: #19253F;
+    font: 700 1rem/1.15 Georgia, serif;
+    letter-spacing: 0.04em;
+    text-align: center;
+    transform: translateX(-50%);
+    z-index: 9;
+    box-shadow: 0 0.35rem 0 rgba(0, 0, 0, 0.25);
+    transition: transform 0.25s ease, filter 0.25s ease, box-shadow 0.25s ease;
+    cursor:pointer
+}
+.performance-sign:hover{
+    transform: translateX(-50%) translateY(-0.4rem) rotate(-2deg);
+    filter: brightness(1.15);
+    box-shadow: 0 0.7rem 0 rgba(0, 0, 0, 0.25);
+}
+.performance-sign::before,
+.performance-sign::after{
+    content: "";
+    position: absolute;
+    top: -10vh;
+    width: 0.2rem;
+    height: 10vh;
+    background: #D49A51;
+}
+.performance-sign::before{
+    left: 1.5rem;
+    transform: rotate(-5deg);
+    transform-origin: bottom;
+}
+.performance-sign::after{
+    right: 1.5rem;
+    transform: rotate(5deg);
+    transform-origin: bottom;
+}
+.confetti{
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 6;
+}
+.confetti-piece{
+    position: absolute;
+    top: -1rem;
+    width: 0.55rem;
+    height: 0.9rem;
+    background: #f2c14e;
+    opacity: 0;
+}
+.party-started .confetti-piece{
+    animation-name: confettiFall;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+.confetti1{ left: 8%; animation-delay: 1s; animation-duration: 3.6s; background: #e85d75; }
+.confetti2{ left: 18%; animation-delay: 3s; animation-duration: 5.2s; background: #4ecdc4; }
+.confetti3{ left: 29%; animation-delay: 2s; animation-duration: 4.1s; background: #f2c14e; }
+.confetti4{ left: 40%; animation-delay: 4s; animation-duration: 6s; background: #9b5de5; }
+.confetti5{ left: 51%; animation-delay: 1.5s; animation-duration: 4.7s; background: #ff8c42; }
+.confetti6{ left: 62%; animation-delay: 3.5s; animation-duration: 5.7s; background: #e85d75; }
+.confetti7{ left: 72%; animation-delay: 2.5s; animation-duration: 3.9s; background: #4ecdc4; }
+.confetti8{ left: 81%; animation-delay: 4.5s; animation-duration: 6.4s; background: #f2c14e; }
+.confetti9{ left: 89%; animation-delay: 0.5s; animation-duration: 4.4s; background: #9b5de5; }
+.confetti10{ left: 95%; animation-delay: 3.8s; animation-duration: 5s; background: #ff8c42; }
+@keyframes confettiFall{
+    0%{
+        opacity: 0;
+        transform: translateY(0) rotate(0deg) skewX(0deg);
+    }
+    10%{
+        opacity: 1;
+    }
+    82%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+        transform: translateY(75vh) rotate(540deg) skewX(12deg);
+    }
+}
+.bottomStage{
+    position: absolute;
+    background-image: url("./media/Stage.svg");
+    background-repeat: repeat-x;
+    width: 100%;
+    height: 22.5vh;
+    bottom: -10%;
+    z-index: 5;
+    border-radius: 0 0 1rem 1rem;
+    transform: rotateX(45deg);
+    transform-origin: top center;
+}
+.mike_Char{
+    min-width: 10rem;
+    max-width: 15rem;
+    height: 100%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 7;
+}
+#spotlights{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    
+}
+#char{
+    position: absolute;
+    bottom: 5%;
+    max-height: 50%;
+    height: 70vw;
+    left: 50%;
+    transform: translateX(-50%);
+}
+#mike{
+    position: absolute;
+    bottom: 0;
+    max-height: 40%;
+    height: 55vw;  
+    left: 35%;
+    z-index: 3;
+}
+#speaker1{
+    position: absolute;
+    bottom: 0;
+    max-height: 20%;
+    height: 25vw;
+    left: 5%;
+}
+#speaker2{
+    position: absolute;
+    bottom: 0;
+    max-height: 20%;
+    height: 25vw;
+    right: 5%;
+}
+.birthday-card{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: min(28rem, calc(100% - 2rem));
+    max-height: 75%;
+    padding: 5rem 4rem 2rem;
+    box-sizing: border-box;
+    overflow-y: auto;
+    background: rgba(255, 255, 255, 0.28);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 1.5rem;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.25);
+    color: #43212e;
+    text-align: center;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -45%) scale(0.9);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 11;
+}
+.party-started .birthday-card.card-visible{
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+}
+.birthday-card h1{
+    margin: 0 0 1rem;
+    color: #D49A51;
+    font: 700 1.5rem Georgia, serif;
+}
+.birthday-card p{
+    margin: 0 0 1rem;
+    color: #583140;
+    font: 0.95rem/1.45 Georgia, serif;
+}
+.card-button{
+    border: 0.15rem solid #8b61b5;
+    border-radius: 0.4rem;
+    padding: 0.55rem 1rem;
+    background: #f1b323;
+    color: #19253f;
+    cursor: pointer;
+    font-weight: 700;
+}
+.card-button:hover{
+    filter: brightness(1.1);
+}
+.show-card{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 11;
+}
+.party-started .birthday-card:not(.card-visible) + .show-card{
+    opacity: 1;
+    pointer-events: auto;
+}
+.playing-speaker{
+    transform-origin: bottom center;
+}
+.party-started .playing-speaker{
+    animation: speakerMusic 0.8s ease-in-out infinite alternate;
+}
+.party-started #speaker2.playing-speaker{
+    animation-delay: -0.4s;
+}
+@keyframes speakerMusic{
+    from{
+        transform: skewX(-3deg) scale(1);
+    }
+    to{
+        transform: skewX(3deg) scale(1.05, 0.98);
+    }
+}

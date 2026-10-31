@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Happy Birthday</title>
+</head>
+<body>
+    <div class="stageBox">
+        <div class="stage">
+            <div class="sideCurtainsL"><img src="./media/left-curtain.svg" alt="left_curtain"/></div>
+            <div class="sideCurtainsR"><img src="./media/right-curtain.svg" alt="right_curtain"/></div>
+            <div class="party-lights" aria-hidden="true"></div>
+            <div class="topCurtains"></div>
+            <div class="performance-sign" id="performanceSign" role="button" tabindex="0">
+                <span>Begin<br>Performance</span>
+            </div>
+            <audio id="birthdaySong" src="./media/BirthdaySong.mp3" preload="auto"></audio>
+            <div class="confetti" aria-hidden="true">
+                <span class="confetti-piece confetti1"></span>
+                <span class="confetti-piece confetti2"></span>
+                <span class="confetti-piece confetti3"></span>
+                <span class="confetti-piece confetti4"></span>
+                <span class="confetti-piece confetti5"></span>
+                <span class="confetti-piece confetti6"></span>
+                <span class="confetti-piece confetti7"></span>
+                <span class="confetti-piece confetti8"></span>
+                <span class="confetti-piece confetti9"></span>
+                <span class="confetti-piece confetti10"></span>
+            </div>
+            <div class="balloons">
+                <div class="balloon balloon1"></div>
+                <div class="balloon balloon2"></div>
+                <div class="balloon balloon3"></div>
+                <div class="balloon balloon4"></div>
+                <div class="balloon balloon5"></div>
+            </div>
+            <div class="mike_Char">
+                <img id="spotlights" src="./media/spotlights.svg" alt="mike"/>
+                <img id="mike" src="./media/mike.svg" alt="mike"/>
+                <img id="speaker1" class="playing-speaker" src="./media/Speaker.svg" alt="speaker"/>
+                <img id="speaker2" class="playing-speaker" src="./media/Speaker.svg" alt="speaker"/>
+                <img id="char" src="./media/Char.svg" alt="char"/>
+            </div>
+            <div class="birthday-card" id="birthdayCard" aria-hidden="true">
+                <h1>Happy Birthday!</h1>
+                <p>Hey, Let me start of by saying happy Birthday/B-lated Birthday. Kinda wanted to ruin your day yesterday, but i decided for you to keep your peace -_-. Just want to show you some love and to let you know I&rsquo;ll be loving u from a far.</p>
+                <p>Sooooo Now to the good news. I want you to know that I personally will be repaying my Burger Debt every Year on your Birthday. Concider this 1/5.</p>
+                <button class="card-button" id="hideCard" type="button">Hide Card</button>
+            </div>
+            <button class="card-button show-card" id="showCard" type="button">Show Card</button>
+            <div class="bottomStage"></div>
+        </div>
+    </div>
+    <script src="./index.js"></script>
+</body>
+</html>
