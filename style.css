@@ -247,7 +247,7 @@ body{
 }
 .bottomStage{
     position: absolute;
-    background-image: url("./media/Stage.svg");
+    background-image: url("./media/stage.svg");
     background-repeat: repeat-x;
     width: 100%;
     height: 22.5vh;
